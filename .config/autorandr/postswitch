@@ -1,0 +1,4 @@
+#!/bin/sh
+
+feh --bg-scale /home/matedealer/Bilder/wallpaper/wallpaper.*
+i3-msg restart
