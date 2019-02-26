@@ -39,9 +39,10 @@ underline-color = #00f
 border-bottom-size = 2
 border-bottom-color = #666
 
+fixed-center = false
 spacing = 0 
 padding-left = 0
-padding-right = 0 
+padding-right = 2 
 module-margin-left = 1
 module-margin-right = 1
 
@@ -51,26 +52,23 @@ font-0 = "FantasqueSansMono Nerd Font:style=Bold:pixelsize=10;3"
 font-1 = unifont:size=6:heavy:fontformat=truetype;-2
 font-2 = FontAwesome:style=Bold:pixelsize=9;0
 
+tray-position = right
+tray-padding = 2
+tray-scale = 1.2
+
 [bar/HDMI-2]
 inherit = bar/base
 monitor = HDMI-2
 modules-left = tray i3 
-;modules-center = xwindow 
 modules-right = volume root data memory cpu wlan eth battery temperature date 
 
-tray-detched = false
-tray-position = left
-tray-padding = 4
 
 [bar/VGA-1]
 monitor = VGA-1
 inherit = bar/base
 modules-left = i3 
-#modules-center = xwindow 
 modules-right = volume root data memory cpu wlan eth battery temperature date 
 
-;tray-position = right
-;tray-padding = 4
 
 [bar/HDMI-3]
 monitor = HDMI-3
@@ -83,9 +81,7 @@ monitor = LVDS-1
 inherit = bar/base
 modules-left = i3 
 modules-right = volume root data memory cpu wlan eth battery temperature date 
-tray-detched = true
-tray-position = left
-tray-padding = 4
+
 
 [module/xwindow]
 type = internal/xwindow
