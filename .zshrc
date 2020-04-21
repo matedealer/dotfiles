@@ -24,6 +24,7 @@ ZSH_THEME="bullet-train"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
+eval `dircolors ~/.config/dircolors.256dark`
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -51,7 +52,7 @@ ZSH_THEME="bullet-train"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git sudo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -76,6 +77,19 @@ export EDITOR='vim'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+
+h=()
+if [[ -r ~/.ssh/config ]]; then
+  h=($h ${${${(@M)${(f)"$(cat ~/.ssh/config)"}:#Host *}#Host }:#*[*?]*})
+fi
+if [[ -r ~/.ssh/known_hosts ]]; then
+  h=($h ${${${(f)"$(cat ~/.ssh/known_hosts{,2} || true)"}%%\ *}%%,*}) 2>/dev/null
+fi
+if [[ $#h -gt 0 ]]; then
+  zstyle ':completion:*:ssh:*' hosts $h
+  zstyle ':completion:*:slogin:*' hosts $h
+fi
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -89,8 +103,12 @@ export EDITOR='vim'
 autoload zmv
 
 export VISUAL="vim"
-#export PATH="/home/matedealer/bin/:"$PATH
 export TERMINAL="/usr/bin/lilyterm"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-alias config='/usr/bin/git --git-dir=/home/matedealer/.cfg/ --work-tree=/home/matedealer'
+alias venv_ma="source $HOME/Masterarbeit/internalblue/venv/bin/activate"
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=/home/matedealer'
+alias wetter='curl "wttr.in/Darmstadt?n"'
+
+
+

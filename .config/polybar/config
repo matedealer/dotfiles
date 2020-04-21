@@ -76,6 +76,12 @@ inherit = bar/base
 modules-left = i3
 modules-right = volume root data memory cpu wlan eth battery temperature date
 
+[bar/DP-1]
+monitor = DP-1
+inherit = bar/base
+modules-left = i3
+modules-right = volume root data memory cpu wlan eth battery temperature date
+
 [bar/laptop]
 monitor = LVDS-1
 inherit = bar/base
