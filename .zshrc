@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/matedealer/.oh-my-zsh
+  export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -24,7 +24,7 @@ ZSH_THEME="bullet-train"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
-eval `dircolors ~/.config/dircolors.256dark`
+eval `dircolors $HOME/.config/dircolors.256dark`
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -106,8 +106,7 @@ export VISUAL="vim"
 export TERMINAL="/usr/bin/lilyterm"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-alias venv_ma="source $HOME/Masterarbeit/internalblue/venv/bin/activate"
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=/home/matedealer'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias wetter='curl "wttr.in/Darmstadt?n"'
 
 
